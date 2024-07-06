@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>工网2202展示墙</title>
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha384-RaVGx+7s7vqh/m6xZyL98V3C4Ez4e6m4/46/xW7/8e6oUH5J/7g0eJkL4" crossorigin="anonymous">
+  <style>
+    /* 基础样式 */
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: "Arial", sans-serif;
+      background: #f4f4f4;
+      color: #333;
+    }
+    
+
+    .background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #f6d365, #fda085);
+      z-index: -1;
+      animation: backgroundShift 30s ease infinite alternate;
+    }
+    header {
+  position: relative;
+  background-color: white; /* 背景颜色为白色 */
+  background-image: linear-gradient(to right, #ffa000, #ffcb05); /* 渐变背景 */
+  color: #4285f4; 
+  text-align: center;
+  
+  font-size: 1.5em;
+  font-family: "Great Vibes", cursive;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 盒子阴影 *//* 与图片轮播保持一定间隔 */
+}
+
+    :root {
+      --primary-color: #4285f4;
+      --hover-color: #357ae8;
+      --dot-color: #bbb;
+      --dot-hover-color: #888;
+      --dot-active-color: #4285f4;
+    }
+
+    .image-carousel {
+      position: relative;
+      width: 95%;
+      max-width: 1000px;
+      height: 600px;
+      margin: 50px auto;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 15px 45px rgba(0, 0, 0, 0.25);
+      overflow: hidden;
+      z-index: 2;
+    }
+
+    .carousel-images img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      border-radius: 10px;
+      opacity: 0;
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .carousel-images img.active {
+      opacity: 1;
+      transform: translateX(0) scale(1.05);
+    }
+
+    .footer-panel {
+      position: relative;
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+      background: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      z-index: 2;
+    }
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.8);
+      border: 1px solid #ddd;
+      padding: 10px;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 100;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .arrow:hover {
+      transform: translateY(-50%) scale(1.2);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+    }
+
+    .prev {
+      left: 10px;
+    }
+    .next {
+      right: 10px;
+    }
+
+    #navDots {
+      margin: 10px 0;
+    }
+
+    #navDots button {
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      margin: 0 5px;
+      background: var(--dot-color);
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    #navDots button:hover {
+      transform: scale(1.2);
+      background: var(--dot-hover-color);
+    }
+
+    #navDots button.active {
+      background: var(--dot-active-color);
+    }
+
+    @media (max-width: 768px) {
+      .image-carousel,
+      .footer-panel {
+        width: 95%;
+      }
+
+      .arrow {
+        padding: 10px;
+      }
+
+      #navDots button {
+        width: 12px;
+        height: 12px;
+      }
+    }
+
+    @keyframes backgroundShift {
+      from {
+        background-position: 0% 0%;
+      }
+      to {
+        background-position: 100% 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>欢迎来到工网2202风景墙</h1>
+  </header>
+  <div class="background"></div>
+
+  <div class="image-carousel">
+    <div class="carousel-images">
+       <img src="./img/1.png" alt="Image 1" class="carousel-image" />
+        <img src="./img/2.jpg" alt="Image 2" class="carousel-image" />
+        <img src="./img/3.jpg" alt="Image 3" class="carousel-image" />
+        <img src="./img/4.png" alt="Image 4" class="carousel-image" />
+        <img src="./img/5.png" alt="Image 5" class="carousel-image" />
+        <img src="./img/6.jpg" alt="Image 6" class="carousel-image" />
+        <img src="./img/7.png" alt="Image 7" class="carousel-image" />
+        <img src="./img/8.png" alt="Image 8" class="carousel-image" />
+        <img src="./img/9.png" alt="Image 9" class="carousel-image" />
+        <img src="./img/10.png" alt="Image 10" class="carousel-image" />
+        <img src="./img/11.png" alt="Image 11" class="carousel-image" />
+        <img src="./img/12.png" alt="Image 12" class="carousel-image" /> -->
+        <img src="./img/13.png" alt="Image 13" class="carousel-image" />
+        <img src="./img/14.jpg" alt="Image 14" class="carousel-image" />
+        <img src="./img/15.jpg" alt="Image 15" class="carousel-image" />
+        <img src="./img/16.jpg" alt="Image 16" class="carousel-image" />
+        <img src="./img/17.jpg" alt="Image 17" class="carousel-image" />
+        <img src="./img/18.jpg" alt="Image 18" class="carousel-image" />
+      <!-- 图片列表... -->
+    </div>
+  </div>
+  <!-- 新增白色板块 -->
+  <div class="footer-panel">
+    <div class="arrow prev"><i class="fas fa-chevron-left"></i></div>
+    <div id="navDots"></div>
+    <div class="arrow next"><i class="fas fa-chevron-right"></i></div>
+  </div>
+  <!-- 背景音乐 -->
+  <audio id="backgroundMusic" src="./521960624.mp3" style="display: none;"></audio>
+  <!-- JavaScript代码 -->
+  <script>
+    // JavaScript代码...
+  </script>
+</body>
+</html>
+    <script>
+      var music = document.getElementById("backgroundMusic");
+      window.addEventListener("load", function () {
+        var shouldPlayMusic = sessionStorage.getItem("shouldPlayMusic");
+        if (shouldPlayMusic === "true") {
+          music.play().catch(function (error) {
+            console.error("音乐播放失败:", error);
+          });
+          sessionStorage.removeItem("shouldPlayMusic");
+        }
+      });
+      document.addEventListener("DOMContentLoaded", function () {
+        var images = document.querySelectorAll(".carousel-image");
+        var dots = document.getElementById("navDots");
+        var currentIndex = 0;
+        var totalImages = images.length;
+        var autoPlayInterval = setInterval(nextImage, 5000); // 自动播放
+
+        function showImage(index) {
+          images.forEach((img, idx) => {
+            if (idx === index) {
+              img.classList.add("active");
+            } else {
+              img.classList.remove("active");
+            }
+          });
+        }
+
+        function nextImage() {
+          currentIndex = (currentIndex + 1) % totalImages;
+          showImage(currentIndex);
+          updateNavDots();
+        }
+
+        function prevImage() {
+          currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+          showImage(currentIndex);
+          updateNavDots();
+        }
+
+        function updateNavDots() {
+          var dotButtons = dots.querySelectorAll("button");
+          dotButtons.forEach((dot, idx) => {
+            dot.classList.toggle("active", idx === currentIndex);
+          });
+        }
+
+        function setupNavDots() {
+          var frag = document.createDocumentFragment();
+          images.forEach((img, index) => {
+            var dot = document.createElement("button");
+            dot.dataset.index = index;
+            dot.addEventListener("click", function () {
+              clearInterval(autoPlayInterval);
+              currentIndex = parseInt(this.dataset.index);
+              showImage(currentIndex);
+              updateNavDots();
+              autoPlayInterval = setInterval(nextImage, 5000);
+            });
+            frag.appendChild(dot);
+          });
+          dots.appendChild(frag);
+          updateNavDots();
+        }
+
+        document.querySelector(".prev").addEventListener("click", prevImage);
+        document.querySelector(".next").addEventListener("click", nextImage);
+
+        setupNavDots();
+        showImage(currentIndex);
+      });
+    </script>
+  </body>
+</html>
