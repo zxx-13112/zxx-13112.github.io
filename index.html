@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>欢迎页面</title>
+    <style>
+      body,
+      html {
+        height: 100%;
+        margin: 0;
+        font-family: "Lato", sans-serif;
+        background: linear-gradient(to right, #6dd5ed, #2193b0);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: #fff;
+        overflow: hidden;
+      }
+      .container {
+        background: rgba(0, 0, 0, 0.5);
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+        width: 80%;
+        max-width: 500px;
+      }
+      h1 {
+        margin-bottom: 30px;
+        font-size: 2.5em;
+        opacity: 0; /* 开始时设置为完全透明 */
+        animation: fadeInDown 2s ease-out forwards; /* 应用渐入动画，forwards保持动画结束状态 */
+      }
+      .button {
+        padding: 15px 45px;
+        margin: 10px 5px;
+        font-size: 18px;
+        color: #fff;
+        background: #e9573f;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: transform 0.2s, box-shadow 0.2s;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+      .button:hover {
+        background: #cb3315;
+        transform: translateY(-5px) scale(1.05);
+      }
+      .footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        padding: 10px 0;
+        text-align: center;
+        font-size: 0.8em;
+      }
+      /* 动画定义 */
+      @keyframes fadeInDown {
+        0% {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>大家好，欢迎来到工网2202</h1>
+      <button id="goToPageButton" class="button">转到第二页</button>
+    </div>
+
+    <div class="footer">&copy; 2024 工网2202. All rights reserved.</div>
+
+    <!-- 音乐元素 -->
+    <audio
+      id="backgroundMusic"
+      src="./521960624.mp3"
+      preload="auto"
+      style="display: none"
+    ></audio>
+
+    <script>
+      var music = document.getElementById("backgroundMusic");
+      var goToPageButton = document.getElementById("goToPageButton");
+      var isPlaying = false;
+
+      function playMusic() {
+        if (!isPlaying) {
+          music.play().catch(function (error) {
+            console.error("音乐播放失败:", error);
+          });
+          isPlaying = true;
+        }
+      }
+
+      goToPageButton.addEventListener("click", function () {
+        playMusic();
+        goToPage("/2.html");
+      });
+
+      function goToPage(url) {
+        sessionStorage.setItem("shouldPlayMusic", "true");
+        window.location.href = url;
+      }
+
+      window.addEventListener("load", function () {
+        if (sessionStorage.getItem("shouldPlayMusic") === "true") {
+          playMusic();
+          sessionStorage.removeItem("shouldPlayMusic");
+        }
+      });
+    </script>
+  </body>
+</html>
